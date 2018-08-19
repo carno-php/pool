@@ -1,0 +1,30 @@
+{
+  "name": "carno-php/pool",
+  "license": "MIT",
+  "require": {
+    "carno-php/coroutine": "^1.0",
+    "carno-php/promise": "^1.0",
+    "carno-php/channel": "^1.0",
+    "carno-php/timer": "^1.0",
+    "carno-php/log-slim": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Carno\\Pool\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Carno\\Pool\\Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}
