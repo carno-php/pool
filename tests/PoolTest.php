@@ -50,7 +50,7 @@ class PoolTest extends SimplePoolBase
 
         $pool = null;
 
-        $this->assertTrue(gc_collect_cycles() === 0);
+        $this->assertNoGC();
     }
 
     public function testIdlesConnOps()
@@ -76,6 +76,13 @@ class PoolTest extends SimplePoolBase
         $pool->shutdown();
         $pool = null;
 
-        $this->assertTrue(gc_collect_cycles() === 0);
+        $this->assertNoGC();
+    }
+
+    private function assertNoGC()
+    {
+        if (!(extension_loaded('xdebug') && xdebug_code_coverage_started())) {
+            $this->assertEquals(0, gc_collect_cycles());
+        }
     }
 }
