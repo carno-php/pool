@@ -335,8 +335,9 @@ class Connections
                                 'error' => sprintf('#%d->%s::%s', $e->getCode(), get_class($e), $e->getMessage()),
                             ]
                         );
+                    } finally {
+                        $this->rsExpanding --;
                     }
-                    $this->rsExpanding --;
                 });
             }
             return $expandSize;
